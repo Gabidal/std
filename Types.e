@@ -1,5 +1,12 @@
 type char{
 	size = 1
+
+	#Go thourgh the list of characters until met null character
+	int Size(){
+		int i = 0
+		while(this[i] != '\0'; i++){}
+		return i
+	}
 }
 
 type bool{

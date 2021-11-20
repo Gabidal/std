@@ -87,7 +87,7 @@ static std{
 
 	String String.Set(char ptr value){
 		this.Characters.Resize(Max(this.Size, value.Size()))
-		Memcpy(this.First(), value, value.Size())
+		Memcpy<char>(this.First(), value, value.Size())
 	}
 
 	char ptr String.First(){
