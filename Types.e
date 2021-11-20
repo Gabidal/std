@@ -3,8 +3,8 @@ type char{
 
 	#Go thourgh the list of characters until met null character
 	int Size(){
-		int i = 0
-		while(this[i] != '\0'; i++){}
+		int i
+		while(i = 0; this[i] != "\0"; i++){}
 		return i
 	}
 }
