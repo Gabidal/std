@@ -81,12 +81,12 @@ static std{
 
 	#this is for the overload of '=' operator
 	String String.Set(String value){
-		this.Characters.Resize(Max(this.Size, value.Size()))
+		this.Characters.Resize(Max<int>(this.Size(), value.Size()))
 		Memcpy<char>(this.First(), value.First(), value.Size())
 	}
 
 	String String.Set(char ptr value){
-		this.Characters.Resize(Max(this.Size, value.Size()))
+		this.Characters.Resize(Max<int>(this.Size(), value.Size()))
 		Memcpy<char>(this.First(), value, value.Size())
 	}
 
