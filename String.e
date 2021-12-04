@@ -12,7 +12,7 @@ static std{
 	}
 
 	char String.At(int i){
-		return this.First(i)
+		return this.First()[i]
 	}
 
 	char ptr String.Value(){

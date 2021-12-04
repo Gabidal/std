@@ -66,8 +66,9 @@ static std{
 		this.Array[i] = data
 	}
 
+	#[char <- hidden] ptr array + [int <- hidden] ptr index
 	T ptr List<T>.Last<T>(){
-		return this.Array + this.Size()
+		return this.Array + (this.Size() - 1)->address
 	}
 
 	T ptr List<T>.First<T>(){
