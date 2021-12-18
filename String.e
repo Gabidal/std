@@ -28,7 +28,7 @@ static std{
 
 			char Digit = Remainder + 48
 
-			Result.Characters.Push_Back(Digit)
+			Result.Characters.Add(Digit)
 
 			if (x == 0){
 				return Result
