@@ -47,25 +47,25 @@ static std{
 		return Result
 	}
 
-	bool Compare(String x, String y){
-		if (x.Size() != y.Size()){
+	bool String.Compare(String y){
+		if (this.Size() != y.Size()){
 			return false
 		}
-		while (int i = 0; i < x.Size(); i++){
-			if (x.At(i) != y.At(i)){
+		while (int i = 0; i < this.Size(); i++){
+			if (this.At(i) != y.At(i)){
 				return false
 			}
 		}
 		return true
 	}
 
-	bool Compare(char ptr x, String y){
+	static bool Compare(char ptr x, String y){
 		String New_X.String(x)
 		return Compare(New_X, y)
 	}
 
-	bool Compare(String x, char ptr y){
-		return Compare(y, x)
+	bool String.Compare(char ptr y){
+		return Compare(y, this)
 	}
 
 	#This append adds to the left side list and then returns it
