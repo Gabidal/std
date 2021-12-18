@@ -59,7 +59,7 @@ static std{
 		return true
 	}
 
-	static bool Compare(char ptr x, String y){
+	bool Compare(char ptr x, String y){
 		String New_X.String(x)
 		return Compare(New_X, y)
 	}
@@ -70,8 +70,8 @@ static std{
 
 	#This append adds to the left side list and then returns it
 	#Warning: this function modifies content of 'x'
-	func Append(String ptr x, String y){
-		x.Characters.Append(y)
+	func String.Append(String y){
+		Characters.Append(y)
 	}
 
 	#This append returns a new combined list
