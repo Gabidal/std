@@ -71,7 +71,7 @@ static std{
 	#This append adds to the left side list and then returns it
 	#Warning: this function modifies content of 'x'
 	func String.Append(String y){
-		Characters.Append(y)
+		return Characters.Append<char>(y)
 	}
 
 	#This append returns a new combined list
