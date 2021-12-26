@@ -82,10 +82,10 @@ static std{
 	
 	#This append adds to the left side list and then returns it
 	#Warning: this function modifies content of 'x'
-	func List<T>.Append<T>(List<T> ptr x, List<T> y){
-		x.Resize(y.Size())
+	func List<T>.Append<T>(List<T> y){
+		Resize(y.Size())
 
-		Memcpy<T>(x.Last(), y.First(), y.Size())
+		Memcpy<T>(Last(), y.First(), y.Size())
 	}
 
 	#This append returns a new combined list
