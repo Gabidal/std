@@ -9,12 +9,10 @@ static std{
 	String Read(){
 		String Result.String()
 
-		Result.Characters.Array = Allocate<char>(MAX_CONSOLE_BUFFER_LENGHT)
+		Result.Resize(MAX_CONSOLE_BUFFER_LENGHT)
 
-		Result.Characters.Size = internal_read(Result.Characters.Array, MAX_CONSOLE_BUFFER_LENGHT)
+		Result.Characters.Size = internal_read(Result.First(), MAX_CONSOLE_BUFFER_LENGHT)
 		
-		Result.Characters.Capacity = MAX_CONSOLE_BUFFER_LENGHT
-
 		return Result
 	}
 
