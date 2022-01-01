@@ -11,9 +11,9 @@ static std{
 
 		Result.Characters.Array = Allocate<char>(MAX_CONSOLE_BUFFER_LENGHT)
 
-		Result.Characters.Size = internal_read(Buffer, MAX_CONSOLE_BUFFER_LENGHT)
+		Result.Characters.Size = internal_read(Result.Characters.Array, MAX_CONSOLE_BUFFER_LENGHT)
 		
-		Result.Characters.Capacity = MAX_CONCOLE_BUFFER_LENGHT
+		Result.Characters.Capacity = MAX_CONSOLE_BUFFER_LENGHT
 
 		return Result
 	}
