@@ -98,7 +98,7 @@ static std{
 		return this.Characters.Last()
 	}
 
-	func Reize(int size){
+	func Resize(int size){
 		this.Characters.Resize(size)
 	}
 
