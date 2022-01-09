@@ -22,6 +22,12 @@ T ptr New<T>(){
 	return (internal_allocate(T.size)->(char ptr))->T	
 }
 
+T ptr New<T>(T ptr This){
+	T ptr Substitute = New<T>()
+	Substitute[0] = This[0]
+	return Substitute
+}
+
 func Memcpy<T>(T ptr dest, T ptr source, int Size){
     while (int i = 0, i < Size, i++){
         dest[i] = source[i]

@@ -7,6 +7,16 @@ type char{
 		while(i = 0; this[i] != "\0"; i++){}
 		return i
 	}
+
+	#checks if the character in the parameter x is contained in the parameter y
+	bool Contains(char x){
+		while(int i = 0; i < this.Size(); i++){
+			if(this[i] == x){
+				return true
+			}
+		}
+		return false
+	}
 }
 
 type bool{
