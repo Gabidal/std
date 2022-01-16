@@ -2,14 +2,14 @@ static std{
 	type List<T>{
 		int Capacity = 1
 		int Size = 0
-		T ptr Array = Allocate<T>(Capacity)
+		T ptr Array = Allocate(Capacity)->(T ptr)
 	}
 
 	func List<T>.Add<T>(T Element){
 		if (Size >= Capacity){
 			#allocate new heap space
 			Capacity = Size * 2
-			T ptr tmp = Allocate<T>(Capacity)
+			T ptr tmp = Allocate(Capacity)->(T ptr)
 
 			Memcpy<T>(tmp, Array, Size)
 
@@ -41,7 +41,7 @@ static std{
 			return
 		}
 
-		T ptr tmp = Allocate<T>(New_Size)
+		T ptr tmp = Allocate(New_Size)->(T ptr)	
 
 		Memcpy<T>(tmp, Array, Size)
 

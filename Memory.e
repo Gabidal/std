@@ -1,25 +1,25 @@
-T ptr Allocate<T>(int Size){
+T ptr Internal_Allocate<T>(int Size){
 	return (internal_allocate((Size * T.size)->long)->(char ptr))->(T ptr)
 }
 
-T ptr Allocate<T>(long Size){
+T ptr Internal_Allocate<T>(long Size){
 	return (internal_allocate(Size * (T.size)->long)->(char ptr))->(T ptr)
 }
 
-func Deallocate<T>(T ptr Address, int Size){
+func Internal_Deallocate<T>(T ptr Address, int Size){
 	internal_deallocate(Address->(char ptr), Size->long)
 }
 
-func Deallocate<T>(T ptr Address){
-	internal_deallocate(Address->(char ptr), Address.size->long)
-}
-
-func Deallocate<T>(T ptr Address, long Size){
+func Internal_Deallocate<T>(T ptr Address, long Size){
 	internal_deallocate(Address->(char ptr), Size)
 }
 
+func Internal_Deallocate<T>(T ptr Address){
+	internal_deallocate(Address->(char ptr), Address.size->long)
+}
+
 T ptr New<T>(){
-	return (internal_allocate(T.size)->(char ptr))->T	
+	return std.Allocate(T.size)->(T ptr)
 }
 
 T ptr New<T>(T ptr This){
@@ -178,7 +178,7 @@ static std{
 		}
 
 		#This means that the bucket is full
-		if (Last.Page_End->(char ptr) >= Last.Parent.Initial_Heap + Last.Parent.ALLOCATOIN_LENGHT) {
+		if (Last.Page_End->(char ptr) >= Last.Parent.Initial_Heap + ALLOCATION_SIZE) {
 			Last.Parent.Is_Full = true
 			#return a Get_New_Bucket flag
 			return 0->address
@@ -217,6 +217,13 @@ static std{
 	}
 
 	char ptr Allocate(int Size) {
+		if (Size > ALLOCATION_SIZE){
+			#This means that the allocation is too big
+			Page ptr Result = Allocate<char ptr>(Size + Page.size)
+			Result.Page(Bucket_Cache.Cache)
+			return Result.Buffer->address
+		}
+
 		#If this function return null it means that the we need to allocate a new bucket
 		Page ptr New_Page = Get_Free_Page()
 
@@ -239,10 +246,10 @@ static std{
 		#tell the Bucket that how close it is to being full
 		Bucket_Cache.Page_Count++
 		#return the address of the new buffer from page
-		return New_Page.Buffer
+		return New_Page.Buffer->address
 	}
 
-	func De_Allocate(char ptr handle) {
+	func Deallocate(char ptr handle) {
 		#find the page that contains the buffer
 		Page ptr Handle = handle->(Page ptr)
 		#tell future users that this page is not in use
