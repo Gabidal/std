@@ -208,7 +208,7 @@ static std{
 		}
 
 		#Allocate a new bucket
-		Bucket ptr Result = new Page(Last.Bucket_End->(Bucket ptr), this)
+		Bucket ptr Result = Bucket(Last.Bucket_End->(Bucket ptr), this)
 
 		#This makes the allocation faster
 		Bucket_Cache = Result
