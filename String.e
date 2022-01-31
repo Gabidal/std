@@ -84,7 +84,7 @@ static std{
 	long To_Long(String x, int base){
 		long result = 0
 
-		while (i = 0, i < text.Size(), i++) {
+		while (int i = 0, i < text.Size(), i++) {
 			digit = text.At(i)
 			char value = 0
 
@@ -113,7 +113,7 @@ static std{
 	#cheking implies if there is more than one dot in the string or if there is a dot at the beginning or at the end of the string.
 	double To_Double(String text){
 		int Dot_Count = 0
-		for (int i = 0; i < text.Size(); i++){
+		while (int i = 0; i < text.Size(); i++){
 			if (text.At(i) == 46){
 				Dot_Count++
 			}
@@ -136,7 +136,7 @@ static std{
 		double Result = 0
 		double Multiplier = 1
 		bool Negative = false
-		for (int i = 0; i < text.Size(); i++){
+		while (int i = 0; i < text.Size(); i++){
 			if (text.At(i) == 45){
 				Negative = true
 			}
