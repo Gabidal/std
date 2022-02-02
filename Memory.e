@@ -42,7 +42,7 @@ static std{
 	int BUCKET_COUNT = 100000
 
 	#This is the buffer that holds the buckets
-	char ptr BUCKET_BUFFER = Allocate<char>(BUCKET_COUNT)
+	char ptr BUCKET_BUFFER = Internal_Allocate<char>(BUCKET_COUNT)
 
 	#This is the start of the bucket heap
 	Bucket ptr Bucket_Start = Bucket(BUCKET_BUFFER->(Bucket ptr))
@@ -102,7 +102,7 @@ static std{
 
 		Bucket ptr Bucket(Bucket ptr previus) {
 			#This is the heap that the pages are going to reside in
-			Initial_Heap = Allocate<char ptr>(ALLOCATION_SIZE)
+			Initial_Heap = Internal_Allocate<char ptr>(ALLOCATION_SIZE)
 
 			#This points tot he start of the heap
 			Start = Page(Initial_Heap->(Page ptr), this)
@@ -123,7 +123,7 @@ static std{
 
 		Bucket ptr Bucket() {
 			#This is the heap that the pages are going to reside in
-			Initial_Heap = Allocate<char ptr>(ALLOCATION_SIZE)
+			Initial_Heap = Internal_Allocate<char ptr>(ALLOCATION_SIZE)
 
 			#This points tot he start of the heap
 			Start = Page(Initial_Heap->(Page ptr), this)
@@ -144,7 +144,7 @@ static std{
 		func Clean() {
 			#If the bucket is empty then free it from RAM
 			if (Page_Count == 0) {
-				Deallocate<char ptr>(Initial_Heap)
+				Internal_Deallocate<char ptr>(Initial_Heap)
 
 				Cache = Start
 
@@ -219,7 +219,7 @@ static std{
 	char ptr Allocate(int Size) {
 		if (Size > ALLOCATION_SIZE){
 			#This means that the allocation is too big
-			Page ptr Result = Allocate<char ptr>(Size + Page.size)
+			Page ptr Result = Internal_Allocate<char ptr>(Size + Page.size)
 			Result.Page(Bucket_Cache.Cache)
 			return Result.Buffer->address
 		}
