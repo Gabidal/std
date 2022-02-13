@@ -53,7 +53,7 @@ static std{
 	type Page{
 		char ptr Buffer
 		int Size
-		bool Is_Used
+		bool Is_Use
 		Page ptr Next
 		Bucket ptr Parent
 		Page ptr Page_End
@@ -102,9 +102,9 @@ static std{
 
 		Bucket ptr Bucket(Bucket ptr previus) {
 			#This is the heap that the pages are going to reside in
-			Initial_Heap = Internal_Allocate<char ptr>(ALLOCATION_SIZE)
+			Initial_Heap = Internal_Allocate<char>(ALLOCATION_SIZE)
 
-			#This points tot he start of the heap
+			#This points to the start of the heap
 			Start = Page(Initial_Heap->(Page ptr), this)
 
 			#This is for speeding up the allocation
