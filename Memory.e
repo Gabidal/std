@@ -53,13 +53,13 @@ static std{
 	type Page{
 		char ptr Buffer
 		int Size
-		bool Is_Use
+		bool Is_Full
 		Page ptr Next
 		Bucket ptr Parent
 		Page ptr Page_End
 
 		Page ptr Page(Page ptr previus){
-			In_Use = false
+			Is_Full = false
 			previus.Next = this
 			Parent = previus.Parent
 			#Make this buffer to point to the end of this page
@@ -71,7 +71,7 @@ static std{
 
 		Page ptr Page(Bucket ptr parent) {
 			Size = 0
-			In_Use = false
+			Is_Full = false
 			Next = 0->address
 			Parent = parent
 
@@ -167,7 +167,7 @@ static std{
 		while (Current != 0->address) {
 			Last = Current
 			#Is the current page is in use then move to the next page
-			if (Current.In_Use == true){
+			if (Current.Is_Full == true){
 				Current = Current.Next
 			}
 			else {
@@ -238,7 +238,7 @@ static std{
 		#New that we have a new page, we can assign it to a new heap from the bucket that we have
 		New_Page.Update_Page(Size)
 		#Tell future users that this page is in use
-		New_Page.In_Use = true
+		New_Page.Is_Full = true
 		#this will speed up the search for empty buckets
 		Bucket_Cache = New_Bucket
 		#this will speed up the search for empty pages
@@ -253,7 +253,7 @@ static std{
 		#find the page that contains the buffer
 		Page ptr Handle = handle->(Page ptr)
 		#tell future users that this page is not in use
-		Handle.In_Use = false
+		Handle.Is_Full = false
 		#tell the Get_Free_Page function to use this Page as a future reference point
 		Handle.Parent.Cache = Handle
 		#tell the Bucket that how close it is to being empty
