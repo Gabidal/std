@@ -84,8 +84,8 @@ static std{
 	long To_Long(String x, int base){
 		long result = 0
 
-		while (int i = 0, i < text.Size(), i++) {
-			digit = text.At(i)
+		while (int i = 0, i < x.Size(), i++) {
+			digit = x.At(i)
 			char value = 0
 
 			if (digit >= "0" && digit <= "9") { 
