@@ -85,7 +85,7 @@ static std{
 		long result = 0
 
 		while (int i = 0, i < x.Size(), i++) {
-			digit = x.At(i)
+			char digit = x.At(i)
 			char value = 0
 
 			if (digit >= "0" && digit <= "9") { 
