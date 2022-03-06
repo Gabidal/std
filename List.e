@@ -103,7 +103,7 @@ static std{
 	#Finds the index of element and then returns the index
 	int List<T>.Find<T>(T ptr Target){
 		while (int i = 0; i < this.Size(); i++){
-			if (T.size <= BITS_MODE){
+			if (T.size <= BYTES_MODE){
 				if (Target == this.At(i)){
 					return i
 				}
@@ -120,7 +120,7 @@ static std{
 	#Finds the index of element starting from the specified offset and then returns the index
 	int List<T>.Find<T>(T ptr Target, int Offset){
 		while (int i = Offset; i < this.Size(); i++){
-			if (T.size <= BITS_MODE){
+			if (T.size <= BYTES_MODE){
 				if (Target == this.At(i)){
 					return i
 				}

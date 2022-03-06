@@ -179,6 +179,17 @@ static std{
 		return Compare(y, this)
 	}
 
+	#Coming in the next episode of dragon ball z....
+	# bool Contains<T>(T x, List<T> list){
+	# 	while (int i = 0; i < list.Size(); i++){
+	# 		if (x.Compare(list.At(i))){
+	# 			// x <=> y
+	# 			return true
+	# 		}
+	# 	}
+	# 	return false
+	# }
+
 	#This append adds to the left side list and then returns it
 	#Warning: this function modifies content of 'x'
 	func String.Append(String y){
