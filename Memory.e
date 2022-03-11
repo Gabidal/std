@@ -178,7 +178,7 @@ static std{
 		}
 
 		#This means that the bucket is full
-		if (Last.Page_End->(char ptr) >= Last.Parent.Initial_Heap + ALLOCATION_SIZE) {
+		if (Last.Page_End->(char ptr) >= Last.Parent.Initial_Heap + ALLOCATION_SIZE->address) {
 			Last.Parent.Is_Full = true
 			#return a Get_New_Bucket flag
 			return 0->address
