@@ -47,15 +47,13 @@ static std{
 		long Decimal_Place = 10
 
 		while (1 < 2){
-			double Remainder = x - x
+			x = x - (x->long)->double
 
-			long Digit = (Remainder * Decimal_Place)->long
+			long Digit = (x * Decimal_Place)->long
 
-			char Digit_Char = Digit + 48
+			char Digit_Char = (Digit + 48)->char
 
 			Result.Characters.Add(Digit_Char)
-
-			x = x * 10
 
 			Decimal_Place = Decimal_Place * 10
 
