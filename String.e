@@ -23,10 +23,10 @@ static std{
 		String Result.String()
 
 		while (1 < 2){
-			char Remainder = x % 10
+			long Remainder = x % 10
 			x = x / 10
 
-			char Digit = Remainder + 48
+			char Digit = Remainder->char + 48
 
 			Result.Characters.Add(Digit)
 
