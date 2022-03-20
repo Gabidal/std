@@ -219,7 +219,7 @@ static std{
 	char ptr Allocate(int Size) {
 		if (Size > ALLOCATION_SIZE){
 			#This means that the allocation is too big
-			Page ptr Result = Internal_Allocate<char ptr>(Size + Page.size)#->(Page ptr)
+			Page ptr Result = Internal_Allocate<char ptr>(Size + Page.size)->(Page ptr)
 			Result.Page(Bucket_Cache.Cache)
 			return Result.Buffer->address
 		}
