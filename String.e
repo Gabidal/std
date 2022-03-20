@@ -23,7 +23,7 @@ static std{
 		String Result.String()
 
 		while (1 < 2){
-			long Remainder = x % 10
+			char Remainder = x % 10
 			x = x / 10
 
 			char Digit = Remainder + 48
