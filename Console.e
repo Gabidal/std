@@ -11,7 +11,7 @@ static std{
 
 		Result.Resize(MAX_CONSOLE_BUFFER_LENGHT)
 
-		Result.Characters.Size = internal_read(Result.First(), MAX_CONSOLE_BUFFER_LENGHT)
+		Result.Characters.Size = internal_read(Result.First(), MAX_CONSOLE_BUFFER_LENGHT)->int
 		
 		return Result
 	}
