@@ -49,7 +49,7 @@ static std{
 		while (1 < 2){
 			x = x - (x->long)->double
 
-			long Digit = (x * Decimal_Place)->long
+			long Digit = (x * Decimal_Place->double)->long
 
 			char Digit_Char = (Digit + 48)->char
 
