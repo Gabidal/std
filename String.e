@@ -144,7 +144,7 @@ static std{
 			}
 
 			if (text.At(i) >= 48 && text.At(i) <= 57){
-				Result = Result + (text.At(i) - 48) * Multiplier
+				Result = Result + (text.At(i) - 48)->double * Multiplier
 				Multiplier = Multiplier * 0.1
 			}
 		}
