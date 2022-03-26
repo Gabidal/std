@@ -70,7 +70,7 @@ static std{
 	long To_Long(String x){
 		long Result = 0;
 		while (int i = x.Size() -1; i >= 0; i--){
-			int Character = x.At(i)->int - 48
+			long Character = x.At(i)->long - 48
 
 			Result = Result * 10 + Character
 		}
