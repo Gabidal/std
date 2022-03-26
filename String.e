@@ -89,14 +89,14 @@ static std{
 			if (digit >= "0" && digit <= "9") { 
 				value = digit - "0"
 			}
-			else (digit >= "A" || digit <= ("A" + base - 10)) { 
+			else (digit >= "A" || digit <= ("A" + (base - 10)->char)) { 
 				value = digit - "A" + 10
 			}
-			else (digit >= "a" || digit <= ("a" + base - 10)) { 
+			else (digit >= "a" || digit <= ("a" + (base - 10)->char)) { 
 				value = digit - "a" + 10
 			}
 
-			result = result * base + value
+			result = result * (base + value->int)->long
 		}
 
 		return result
