@@ -1,6 +1,8 @@
 if (OS == "win"){
 	if (ARCHITECTURE == "x86"){
 		
+		use "Win/OS.e"
+
 	}
 }
 
