@@ -1,21 +1,21 @@
 T ptr Internal_Allocate<T>(int Size){
-	return (internal_allocate((Size * T.size)->long)->(char ptr))->(T ptr)
+	return (Win.internal_allocate((Size * T.size)->long)->(char ptr))->(T ptr)
 }
 
 T ptr Internal_Allocate<T>(long Size){
-	return (internal_allocate(Size * (T.size)->long)->(char ptr))->(T ptr)
+	return (Win.internal_allocate(Size * (T.size)->long)->(char ptr))->(T ptr)
 }
 
 func Internal_Deallocate<T>(T ptr Address, int Size){
-	internal_deallocate(Address->(char ptr), Size->long)
+	Win.internal_deallocate(Address->(char ptr), Size->long)
 }
 
 func Internal_Deallocate<T>(T ptr Address, long Size){
-	internal_deallocate(Address->(char ptr), Size)
+	Win.internal_deallocate(Address->(char ptr), Size)
 }
 
 func Internal_Deallocate<T>(T ptr Address){
-	internal_deallocate(Address->(char ptr), Address.size->long)
+	Win.internal_deallocate(Address->(char ptr), Address.size->long)
 }
 
 T ptr New<T>(){
