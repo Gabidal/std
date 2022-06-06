@@ -11,11 +11,27 @@ static Internal{
     import plain char ptr VirtualFree(char ptr Hint, long Size, long Flags)
 
     char ptr Allocate(long Size) {
+
         return VirtualAlloc(0->address, Size, MEMORY_COMMIT | MEMORY_RESERVE, PAGE_READWRITE)
+    
     }
 
     char ptr Deallocate(char ptr Address, long Size) {
+
         return VirtualFree(Address, 0, MEMORY_RELEASE)
+    
+    }
+
+    T ptr Allocate<T>(long Size){
+
+        return Allocate(Size * T.size)->(T ptr)
+
+    }
+
+    T ptr Deallocate<T>(T ptr Address, long Size){
+
+        return Deallocate(Address, Size * T.size)->(T ptr)
+
     }
 
 }
