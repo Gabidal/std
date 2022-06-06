@@ -1,19 +1,53 @@
 static std{
 
-	long MAX_CONSOLE_BUFFER_LENGHT = 4096
+    static Read{
 
-	func Print(String x){
-		internal_print(x.Value(), x.Size()->long)
-	}
+        type Console_Read_Buffer{
+            size = 4096
+        }
 
-	String Read(){
-		String Result.String()
+        String ptr Line(){
+            Console_Read_Buffer Buffer
 
-		Result.Resize(MAX_CONSOLE_BUFFER_LENGHT)
+            long Size = Internal.Read(Buffer->char, Console_Read_Buffer.size) - 2
 
-		Result.Characters.Size = internal_read(Result.First(), MAX_CONSOLE_BUFFER_LENGHT)->int
-		
-		return Result
-	}
+            if (Size <= 0){
+
+                return 0->address
+
+            }
+
+            String ptr Result.String(Buffer->char, Size)
+
+            return Result
+        }
+
+    }
+
+    static Write{
+
+        func Line(String Text){
+
+            Internal.Write(Text.First(), Text.Size())
+
+        }
+
+        func Line(char ptr Data, int Size){
+                
+            Internal.Write(Data, Size)
+    
+        }
+
+        func Line(long Value){
+
+            String Text = To_String(Value)
+
+            Internal.Write(Text.First(), Text.Size())
+
+        }
+
+    }
+
+    
 
 }

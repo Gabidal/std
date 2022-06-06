@@ -1,23 +1,3 @@
-T ptr Internal_Allocate<T>(int Size){
-	return (internal_allocate((Size * T.size)->long)->(char ptr))->(T ptr)
-}
-
-T ptr Internal_Allocate<T>(long Size){
-	return (internal_allocate(Size * (T.size)->long)->(char ptr))->(T ptr)
-}
-
-func Internal_Deallocate<T>(T ptr Address, int Size){
-	internal_deallocate(Address->(char ptr), Size->long)
-}
-
-func Internal_Deallocate<T>(T ptr Address, long Size){
-	internal_deallocate(Address->(char ptr), Size)
-}
-
-func Internal_Deallocate<T>(T ptr Address){
-	internal_deallocate(Address->(char ptr), Address.size->long)
-}
-
 T ptr New<T>(){
 	return std.Allocate(T.size)->(T ptr)
 }
@@ -42,7 +22,7 @@ static std{
 	int BUCKET_COUNT = 100000
 
 	#This is the buffer that holds the buckets
-	char ptr BUCKET_BUFFER = Internal_Allocate<char>(BUCKET_COUNT)
+	char ptr BUCKET_BUFFER = Internal.Allocate(BUCKET_COUNT)
 
 	#This is the start of the bucket heap
 	Bucket ptr Bucket_Start = Bucket(BUCKET_BUFFER->(Bucket ptr))
@@ -102,7 +82,7 @@ static std{
 
 		Bucket ptr Bucket(Bucket ptr previus) {
 			#This is the heap that the pages are going to reside in
-			Initial_Heap = Internal_Allocate<char>(ALLOCATION_SIZE)
+			Initial_Heap = Internal.Allocate(ALLOCATION_SIZE)
 
 			#This points to the start of the heap
 			Start = Page(Initial_Heap->(Page ptr), this)
@@ -123,7 +103,7 @@ static std{
 
 		Bucket ptr Bucket() {
 			#This is the heap that the pages are going to reside in
-			Initial_Heap = Internal_Allocate<char ptr>(ALLOCATION_SIZE)
+			Initial_Heap = Internal.Allocate(ALLOCATION_SIZE * (char ptr).size)
 
 			#This points tot he start of the heap
 			Start = Page(Initial_Heap->(Page ptr), this)
@@ -144,7 +124,7 @@ static std{
 		func Clean() {
 			#If the bucket is empty then free it from RAM
 			if (Page_Count == 0) {
-				Internal_Deallocate<char ptr>(Initial_Heap)
+				Internal.Deallocate(Initial_Heap * (char ptr).size)
 
 				Cache = Start
 
@@ -219,7 +199,7 @@ static std{
 	char ptr Allocate(int Size) {
 		if (Size > ALLOCATION_SIZE){
 			#This means that the allocation is too big
-			Page ptr Result = Internal_Allocate<char ptr>(Size + Page.size)->(Page ptr)
+			Page ptr Result = Internal.Allocate(Size * (char ptr).size + Page.size)->(Page ptr)
 			Result.Page(Bucket_Cache.Cache)
 			return Result.Buffer->address
 		}

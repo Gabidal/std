@@ -3,8 +3,12 @@ static std{
 		List<char> ptr Characters.List<char>()
 	}
 
-	func String.String(char ptr data){
-		this.Set(data)
+	func String.String(char ptr Data){
+		this.Set(Data)
+	}
+
+	func String.String(char ptr Data, int Size){
+		this.Set(Data, Size)
 	}
 
 	int String.Size(){
@@ -200,14 +204,19 @@ static std{
 	}
 
 	#this is for the overload of '=' operator
-	String String.Set(String value){
-		Resize(Max<int>(Size(), value.Size()))
-		Memcpy<char>(First(), value.First(), value.Size())
+	String String.Set(String Value){
+		Resize(Max<int>(Size(), Value.Size()))
+		Memcpy<char>(First(), Value.First(), Value.Size())
 	}
 
-	String String.Set(char ptr value){
-		Resize(Max<int>(Size(), value.Size()))
-		Memcpy<char>(First(), value, value.Size())
+	String String.Set(char ptr Value){
+		Resize(Max<int>(Size(), Value.Size()))
+		Memcpy<char>(First(), Value, Value.Size())
+	}
+
+	String String.Set(char ptr Value, int Size){
+		Resize(Max<int>(Size(), Size))
+		Memcpy<char>(First(), Value, Size)
 	}
 
 	char ptr String.First(){
