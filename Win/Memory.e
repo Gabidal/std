@@ -34,4 +34,10 @@ static Internal{
 
     }
 
+    T ptr Deallocate<T>(T ptr Address){
+
+        return Deallocate(Address, T.size)->(T ptr)
+
+    }
+
 }
