@@ -165,7 +165,7 @@ static std{
 		}
 
 		#If we get here then we have to allocate a new page
-		Page ptr Result = Page(Last.Page_End->(Page ptr), this)
+		Page ptr Result = Page(Last.Page_End->(Page ptr), Last)
 		return Result
 	}
 
@@ -188,7 +188,7 @@ static std{
 		}
 
 		#Allocate a new bucket
-		Bucket ptr Result = Bucket(Last.Bucket_End->(Bucket ptr), this)
+		Bucket ptr Result = Bucket(Last.Bucket_End->(Bucket ptr), Last)
 
 		#This makes the allocation faster
 		Bucket_Cache = Result
