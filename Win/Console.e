@@ -23,7 +23,7 @@ static Internal{
 
 		long Handle = GetStdHandle(STANDARD_INPUT_HANDLE)
 
-		ReadConsoleA(Handle, Data, Size, Read, 0->address)
+		ReadConsoleA(Handle, Result, Size, Read, 0->address)
 
 		return Read
 	}
