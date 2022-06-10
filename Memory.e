@@ -165,7 +165,7 @@ static std{
 		}
 
 		#If we get here then we have to allocate a new page
-		Page ptr Result = Page(Last.Page_End->(Page ptr), Last)
+		Page ptr Result = Page(Last.Page_End->(Page ptr), this)
 		return Result
 	}
 
