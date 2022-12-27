@@ -43,7 +43,7 @@ static std{
 			previus.Next = this
 			Parent = previus.Parent
 			#Make this buffer to point to the end of this page
-			Buffer = (this->(char ptr) + Page.size)->(char ptr)	
+			Buffer = (this->(char ptr) + Page.size->(char ptr))->(char ptr)	
 
 			#Make this to point to the end of the buffer
 			Page_End = (Buffer + Size->(char ptr))->(Page ptr)
