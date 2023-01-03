@@ -43,10 +43,10 @@ static std{
 			previus.Next = this
 			Parent = previus.Parent
 			#Make this buffer to point to the end of this page
-			Buffer = (this->(char ptr) + Page.size->(char ptr))->(char ptr)	
+			Buffer = (this + Page.size->address)->(char ptr)	
 
 			#Make this to point to the end of the buffer
-			Page_End = (Buffer + Size->(char ptr))->(Page ptr)
+			Page_End = (Buffer + Size->address)->(Page ptr)
 		}
 
 		Page ptr Page(Bucket ptr parent) {
@@ -56,16 +56,16 @@ static std{
 			Parent = parent
 
 			#Make this buffer to point to the end of this page
-			Buffer = (this->(char ptr) + Page.size)->(char ptr)
+			Buffer = (this + Page.size->address)->(char ptr)
 
 			#Make this to point to the end of the buffer
-			Page_End = (Buffer + Size->(char ptr))->(Page ptr)
+			Page_End = (Buffer + Size->address)->(Page ptr)
 		}
 
 		func Update_Page(int size) {
 			Size = size
 			#Update the page end
-			Page_End = (Buffer + Size->(char ptr))->(Page ptr)
+			Page_End = (Buffer + Size->address)->(Page ptr)
 		}
 	}
 
