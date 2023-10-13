@@ -118,7 +118,7 @@ static std{
 			Previus = 0->address
 
 			#This makes the bucket end point to the end of the bucket
-			Bucket_End = (this->(char ptr) + Bucket.size)->(Bucket ptr)
+			Bucket_End = (this->address + Bucket.size)->(Bucket ptr)
 		}
 
 		func Clean() {
